@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 let tipesOfGamesschema = new mongoose.Schema({
+    
 gameTypeCode:String,
 gameTipeName:String,
 stickerColor:String,

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 let gamesListschema = new mongoose.Schema({
+    
 Id:Number,
 GameCode:Number,
 ClosetNumber:Number,
