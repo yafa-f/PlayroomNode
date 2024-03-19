@@ -1,12 +1,15 @@
 const express = require("express");
-const { UserModel, validateUser } = require("../Models/users");
-const router = express.Router();
+// const { UserModel, validateUser } = require("../Models/users");
+const { UserModel } = require("../Models/users");
 
+const router = express.Router();
+const app = express();
+app.use(express.json);
 router.get("/", async(req,res) => {
-  console.log("ghjjkk");
   try{
-    let data = await UserModel.find({}).limit(20);
-    res.json(data);
+    const data = await UserModel.find({}).limit(20);
+    console.log("jjjjjjjjjjjj");
+    res.json({data});
   }
   catch(err){
     console.log(err);
@@ -14,21 +17,9 @@ router.get("/", async(req,res) => {
   }
 })
 
-// router.get("/single/:id", async(req,res) => {
-//   try{
-//     const id = req.params.id
-//     let data = await UserModel.findOne({_id:id});
-//     res.json(data);
-//   }
-//   catch(err){
-//     console.log(err);
-//     res.status(502).json({err})
-//   }
-// })
-
-router.post("/", async(req,res) => {
+router.post("/", async (req, res) => {
   let validBody = validateUser(req.body);
-  if(validBody.error) {
+  if (validBody.error) {
     return res.status(400).json(validBody.error.details);
   }
   try {
@@ -36,9 +27,9 @@ router.post("/", async(req,res) => {
     await User.save();
     res.json(User)
   }
-  catch(err) {
+  catch (err) {
     console.log(err);
-    res.status(502).json( {err})
+    res.status(502).json({ err })
   }
 })
 
