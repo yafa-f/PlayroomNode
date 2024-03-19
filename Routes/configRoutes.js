@@ -6,7 +6,7 @@ const gamesListR=require('./gamesListRoutes');
 
 
 exports.routesInit =(app)=>{
-    app.use("/",indexR);
+    // app.use("/",indexR);
     app.use("/userRoutes",usersR);
     app.use("/tipesOfGamesRoutes",tipesOfGamesR);
     app.use("/takingOrReturningRoutes",userstakingOrReturningR);

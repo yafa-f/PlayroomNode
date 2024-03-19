@@ -13,7 +13,6 @@ app.use(bodyParser());
 app.use(cors());
 // app.use(myExpress.json);
 app.use(myExpress.static(path.join(__dirname,"public")));
-console.log("iiiiiiii");
 routesInit(app);
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
@@ -26,9 +25,9 @@ const server=http.createServer(app);
 // app.get('/', (req, res) => {
 //   res.send('Hello, Node.js!');
 // });
-app.get("/",(req,res)=>{
-    res.send("<html><h1>מחובר</h1></html>")
-        })
+// app.get("/",(req,res)=>{
+//     res.send("<html><h1>מחובר</h1></html>")
+//         })
 
 // app.get("/", async(req,res) => {
  

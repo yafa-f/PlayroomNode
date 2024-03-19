@@ -5,12 +5,12 @@ const router = express.Router();
 router.get("/", async(req,res) => {
   console.log("ghjjkk");
   try{
-    let data = await UserModel.find({}).limit(20);
-    res.json(data);
+    let data = await UserModel.find({});
+    res.write(json(data));
   }
   catch(err){
     console.log(err);
-    res.status(502).json({err})
+    // res.status(502).json({err})
   }
 })
 
