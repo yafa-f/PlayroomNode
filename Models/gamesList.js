@@ -16,7 +16,7 @@ HaveComplementaryGame:Boolean,
 Location:String,
 IsAvailable:Boolean,
 })
-exports.GamesListModel = mongoose.model("GamesLists",gamesListschema)
+exports.GamesListModel = mongoose.model("GamesList",gamesListschema)
 
 exports.validateGamesList = (_reqBody) => {
 let joiSchema = Joi.object({

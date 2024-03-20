@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // const Joi = require("joi");
 
  usersschema = new mongoose.Schema({
-    
+
 userCode:String,
 userName:String,
 cellphone:String,
