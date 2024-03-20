@@ -14,7 +14,7 @@ GameCode:Number,
 UserCode:Number,
 ReturnID:Number,
 })
-exports.TakingOrReturningModel = mongoose.model("TakingOrReturnings",takingOrReturningschema)
+exports.TakingOrReturningModel = mongoose.model("TakingOrReturning",takingOrReturningschema)
 
 exports.validateTakingOrReturning = (_reqBody) => {
 let joiSchema = Joi.object({

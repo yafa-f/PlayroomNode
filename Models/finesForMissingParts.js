@@ -7,7 +7,7 @@ FineCode:Number,
 MissingPartsAount:Number,
 UserCode:Number,
 })
-exports.FinesForMissingPartsModel = mongoose.model("FinesForMissingPartss",finesForMissingPartsSchema)
+exports.FinesForMissingPartsModel = mongoose.model("FinesForMissingParts",finesForMissingPartsSchema)
 
 exports.validateFinesForMissingParts = (_reqBody) => {
 let joiSchema = Joi.object({
