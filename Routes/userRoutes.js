@@ -1,15 +1,15 @@
 const express = require("express");
-// const { UserModel, validateUser } = require("../Models/users");
-const { UserModel } = require("../Models/users");
-
-const router = express.Router();
+const { UserModel, validateUser } = require("../Models/users");
 const app = express();
-app.use(express.json);
+// const { UserModel } = require("../Models/users");
+const router = express.Router();
+
+app.use(express.json());
 router.get("/", async(req,res) => {
   try{
-    const data = await UserModel.find({}).limit(20);
+    const data = await UserModel.find({});
     console.log("jjjjjjjjjjjj");
-    res.json({data});
+    res.send({data});
   }
   catch(err){
     console.log(err);
