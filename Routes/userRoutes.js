@@ -7,11 +7,9 @@ const router = express.Router();
 app.use(express.json());
 router.get("/", async(req,res) => {
   try{
-    const data = await UserModel.find({}).limit(20);
+    const data = await UserModel.find({});
     console.log("jjjjjjjjjjjj");
     res.send({data});
-    console.log("workkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-
   }
   catch(err){
     console.log(err);
@@ -20,10 +18,10 @@ router.get("/", async(req,res) => {
 })
 
 router.post("/", async (req, res) => {
-  // let validBody = validateUser(req.body);
-  // if (validBody.error) {
-  //   return res.status(400).json(validBody.error.details);
-  // }
+  let validBody = validateUser(req.body);
+  if (validBody.error) {
+    return res.status(400).json(validBody.error.details);
+  }
   try {
     let User = new UserModel(req.body);
     await User.save();

@@ -8,3 +8,9 @@ async function main() {
   console.log("mongo connect");
 }
 exports.default=mongoose;
+
+
+// var db=mongoose.connection;
+// db.on('open',()=>{
+//   console.log("opppppppppppennnnnnnnnnnnnnnn");
+// })
