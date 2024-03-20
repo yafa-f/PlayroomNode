@@ -1,14 +1,13 @@
 const express = require("express");
-const { UserModel, validateUser } = require("../Models/users");
+const { ForAgesModel, validateUser } = require("../Models/users");
 const app = express();
-// const { UserModel } = require("../Models/users");
 const router = express.Router();
 
 
 app.use(express.json());
 router.get("/", async(req,res) => {
   try{
-    const data = await UserModel.find({}).limit(20);
+    const data = await ForAgesModel.find({});
     res.send({data});
   }
   catch(err){
@@ -23,12 +22,11 @@ router.post("/", async (req, res) => {
     return res.status(400).json(validBody.error.details);
   }
   try {
-    let User = new UserModel(req.body);
+    let ForAges = new ForAgesModel(req.body);
     await User.save();
-    res.json(User)
+    res.json(ForAges)
   }
   catch (err) {
- 
     console.log(err);
     res.status(502).json({ err })
   }
@@ -41,7 +39,7 @@ router.put("/:id", async(req,res) => {
   }
   try {
    let id = req.params.id;
-   let data = await UserModel.updateOne({_id:id},req.body);
+   let data = await ForAgesModel.updateOne({_id:id},req.body);
   res.json(data)
   }
   catch(err) {
@@ -53,7 +51,7 @@ router.put("/:id", async(req,res) => {
 router.delete("/:id", async(req,res) => {
   try {
     let id = req.params.id;
-    let data = await UserModel.deleteOne({_id:id} );
+    let data = await ForAgesModel.deleteOne({_id:id} );
     res.json(data)
   }
   catch(err) {
