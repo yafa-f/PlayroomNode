@@ -3,6 +3,6 @@ const router=express.Router();
 
 
 router.get("/",(req,res)=>{
-    res.json({msg:"cfyfghjk"})
+    res.json({msg:"מחובר"})
         })
 module.exports=router;

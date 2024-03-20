@@ -7,7 +7,7 @@ const router = express.Router();
 app.use(express.json());
 router.get("/", async(req,res) => {
   try{
-    const data = await UserModel.find({});
+    const data = await UserModel.find({}).limit(20);
     res.send({data});
   }
   catch(err){
@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     res.json(User)
   }
   catch (err) {
+ 
     console.log(err);
     res.status(502).json({ err })
   }
