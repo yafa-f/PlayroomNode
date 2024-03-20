@@ -1,7 +1,7 @@
 const express = require("express");
-// const { UserModel, validateUser } = require("../Models/users");
+const { UserModel, validateUser } = require("../Models/users");
 const app = express();
-const { UserModel } = require("../Models/users");
+// const { UserModel } = require("../Models/users");
 const router = express.Router();
 
 app.use(express.json());
@@ -20,10 +20,10 @@ router.get("/", async(req,res) => {
 })
 
 router.post("/", async (req, res) => {
-  let validBody = validateUser(req.body);
-  if (validBody.error) {
-    return res.status(400).json(validBody.error.details);
-  }
+  // let validBody = validateUser(req.body);
+  // if (validBody.error) {
+  //   return res.status(400).json(validBody.error.details);
+  // }
   try {
     let User = new UserModel(req.body);
     await User.save();
