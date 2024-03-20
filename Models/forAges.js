@@ -6,7 +6,7 @@ gameTypeCode:Number,
 gameTipeName:String,
 stickerColor:String,
 })
-exports.ForAgesModel = mongoose.model("ForAgess",forAgeSchema)
+exports.ForAgesModel = mongoose.model("ForAges",forAgeSchema)
 
 exports.validateForAges = (_reqBody) => {
 let joiSchema = Joi.object({
